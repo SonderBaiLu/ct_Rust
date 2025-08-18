@@ -46,7 +46,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-    { pattern = '\$REPO', replace = "https://github.com/tyr-rust-bootcamp/06-crm" }, # replace repository URL
+    { pattern = '\$REPO', replace = "https://github.com/tyr-rust-bootcamp" }, # replace repository URL
 ]
 
 [git]

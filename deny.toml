@@ -70,7 +70,7 @@ unlicensed = "allow"
 # List of explicitly allowed licenses
 # See https://spdx.org/licenses/ for list of possible licenses
 # [possible values: any SPDX 3.7 short identifier (+ optional exception)].
-allow = [
+allow = [ # 授权协议 以后研究一下
   "MIT",
   "Apache-2.0",
   "Unicode-DFS-2016",
