@@ -27,7 +27,7 @@ pub fn process_csv(input: &str, output: String, format: OutputFormat) -> Result<
         ret.push(record);
         println!("{:?}", json_value);
     }
-    // let jsons = serde_json::to_stri ng_pretty(&ret)?;
+    // let jsons = serde_json::to_str ng_pretty(&ret)?;
     // fs::write(output, jsons)?;
     Ok(())
 }
