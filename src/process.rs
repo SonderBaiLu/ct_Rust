@@ -2,6 +2,7 @@ use std::fs;
 use csv::Reader;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use crate::opts::OutputFormat;
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "PascalCase")] // 帕斯卡命名法（PascalCase） 与骆驼命名法类似。只不过骆驼命名法是首字母小写，而帕斯卡命名法是首字母大写
