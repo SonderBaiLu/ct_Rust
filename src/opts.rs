@@ -1,4 +1,5 @@
 use std::path::Path;
+use std::str::FromStr;
 use clap::Parser;
 
 #[derive(Debug, Parser)]
@@ -12,12 +13,20 @@ pub enum Subcommand {
     #[command(name = "csv", about = "显示 CSV，将 CSV 转换为其他格式 ")]
     Csv(CsvOpts),
 }
+#[derive(Debug, Copy, Clone)]
+pub enum OutputFormat {
+    Json,
+    Yaml,
+    Toml,
+}
 #[derive(Debug, Parser)]
 pub struct CsvOpts {
     #[arg(short, long, value_parser = verify_input_file)]
     pub input: String,
     #[arg(short, long,default_value = "output.json")] // output.json.into()
     pub output: String,
+    #[arg(short, long, value_parser= parser_format,default_value = "json")]
+    pub format: OutputFormat,
     #[arg(short, long, default_value_t = ',')]
     pub delimiter: char,
     #[arg(long, default_value_t = true )]
@@ -28,5 +37,21 @@ pub fn verify_input_file(filename:&str) -> Result<String, &'static str> {
         Ok(filename.into())
     } else {
         Err("文件不存在".into())
+    }
+}
+
+fn parser_format(format: &str) -> Result<OutputFormat, anyhow::Error> {
+    format.parse()
+}
+impl FromStr for OutputFormat {
+    type Err = anyhow::Error;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "json" => Ok(OutputFormat::Json),
+            "yaml" => Ok(OutputFormat::Yaml),
+            "toml" => Ok(OutputFormat::Toml),
+            _ => anyhow::bail!("不支持的输出格式: '{}'. 支持的格式有: json, yaml, toml",s)
+        }
     }
 }
