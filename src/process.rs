@@ -15,7 +15,7 @@ struct Player{
     kit: u8,
 }
 
-pub fn process_csv(input: &str, output: &str) -> Result<(), anyhow::Error>{
+pub fn process_csv(input: &str, output: String, format: OutputFormat) -> Result<(), anyhow::Error>{
     let mut reader = Reader::from_path(input)?;
     let mut ret = Vec::with_capacity(128);
     let headers = reader.headers()?.clone();
