@@ -17,15 +17,15 @@ pub enum Subcommand {
 pub enum OutputFormat {
     Json,
     Yaml,
-    Toml,
+    // Toml,
 }
 #[derive(Debug, Parser)]
 pub struct CsvOpts {
     #[arg(short, long, value_parser = verify_input_file)]
     pub input: String,
-    #[arg(short, long,default_value = "output.json")] // output.json.into()
-    pub output: String,
-    #[arg(short, long, value_parser= parser_format,default_value = "json")]
+    #[arg(short, long)] // output.yaml.into()
+    pub output: Option<String>,
+    #[arg(long, value_parser= parser_format,default_value = "json")]
     pub format: OutputFormat,
     #[arg(short, long, default_value_t = ',')]
     pub delimiter: char,
@@ -50,8 +50,14 @@ impl FromStr for OutputFormat {
         match s {
             "json" => Ok(OutputFormat::Json),
             "yaml" => Ok(OutputFormat::Yaml),
-            "toml" => Ok(OutputFormat::Toml),
+            // "toml" => Ok(OutputFormat::Toml),
             _ => anyhow::bail!("不支持的输出格式: '{}'. 支持的格式有: json, yaml, toml",s)
         }
     }
 }
+// 报错临时取消
+// impl fmt::Display for OutputFormat {
+//     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+//         write!(f, "{}", Into::<&'static str>::into(*self))
+//     }
+// }
