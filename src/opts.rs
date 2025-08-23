@@ -12,6 +12,9 @@ pub struct Opts {
 pub enum Subcommand {
     #[command(name = "csv", about = "显示 CSV，将 CSV 转换为其他格式 ")]
     Csv(CsvOpts),
+    #[command(name = "genpass", about = "生成密码")]
+    GenPass(GenPassOpts)
+
 }
 #[derive(Debug, Copy, Clone)]
 pub enum OutputFormat {
@@ -32,6 +35,20 @@ pub struct CsvOpts {
     #[arg(long, default_value_t = true )]
     pub header: bool,
 }
+#[derive(Debug, Parser)]
+pub struct  GenPassOpts {
+    #[arg(short, long, default_value_t = 16)]
+    pub length: u8, // 密码长度
+    #[arg(long, default_value_t = true)]
+    pub uppercase: bool, // 大写
+    #[arg(long, default_value_t = true)]
+    pub lowercase: bool, // 小写
+    #[arg(short, long, default_value_t = true)]
+    pub numbers: bool, // 数字
+    #[arg(short, long, default_value_t = true)]
+    pub symbol: bool, // 象征
+}
+
 pub fn verify_input_file(filename:&str) -> Result<String, &'static str> {
     if Path::new(filename).exists() {
         Ok(filename.into())
