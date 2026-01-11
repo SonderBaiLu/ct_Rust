@@ -72,6 +72,7 @@ impl FromStr for OutputFormat {
         }
     }
 }
+
 // 报错临时取消
 // impl fmt::Display for OutputFormat {
 //     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
