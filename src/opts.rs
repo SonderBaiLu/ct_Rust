@@ -1,80 +1,50 @@
-use std::path::Path;
-use std::str::FromStr;
 use clap::Parser;
+use serde::{Deserialize, Serialize};
 
+#[derive(Debug, Serialize,Deserialize)]
+pub struct Player{
+    #[serde(rename= "Name")]
+    pubname: String,
+    #[serde(rename= "Role")]
+    pub role: String,
+    #[serde(rename= "Birthday")]
+    pub birthday: String,
+    #[serde(rename= "Region")]
+    pub region: String,
+    #[serde(rename= "Constellation Level")]
+    pub constellation_level: u8,
+}
 #[derive(Debug, Parser)]
-#[command(name ="rcli", version = "1.0", author, about)]
+#[command(name = "rcli", version, author, about, long_about = None)]
 pub struct Opts {
     #[command(subcommand)]
-    pub cmd: Subcommand,
+    pub cmd: SubCommand,
 }
-#[derive(Debug, Parser)]
-pub enum Subcommand {
-    #[command(name = "csv", about = "显示 CSV，将 CSV 转换为其他格式 ")]
+#[derive(Debug,Parser)]
+pub enum SubCommand{
+    #[command(name = "csv", about = "显示Csv或将Csv转换为其他格式")]
     Csv(CsvOpts),
-    #[command(name = "genpass", about = "生成密码")]
-    GenPass(GenPassOpts)
+}
 
-}
-#[derive(Debug, Copy, Clone)]
-pub enum OutputFormat {
-    Json,
-    Yaml,
-    // Toml,
-}
+// default_value_t 和 default_value 的区别是：
+// default_value_t 是在解析参数时使用的，而 default_value 是在打印帮助信息时使用的
+// default_value_t 是在解析参数时使用的默认值，而 default_value 是在打印帮助信息时使用的默认值
 #[derive(Debug, Parser)]
 pub struct CsvOpts {
-    #[arg(short, long, value_parser = verify_input_file)]
+    #[arg(short, long, value_parser = verify_input_file)] // 修复bug value_parser 这里之前写成了字符串 但实际需要functionE> 类型
     pub input: String,
-    #[arg(short, long)] // output.yaml.into()
-    pub output: Option<String>,
-    #[arg(long, value_parser= parser_format,default_value = "json")]
-    pub format: OutputFormat,
-    #[arg(short, long, default_value_t = ',')]
+    #[arg(short, long, default_value = "output.json")]
+    pub output: String,
+    #[arg(short, long, default_value = ",")]
     pub delimiter: char,
-    #[arg(long, default_value_t = true )]
+    #[arg(long, default_value_t = true)] // 携带short参数与-help冲突
     pub header: bool,
 }
-#[derive(Debug, Parser)]
-pub struct  GenPassOpts {
-    #[arg(short, long, default_value_t = 16)]
-    pub length: u8, // 密码长度
-    #[arg(long, default_value_t = true)]
-    pub uppercase: bool, // 大写
-    #[arg(long, default_value_t = true)]
-    pub lowercase: bool, // 小写
-    #[arg(short, long, default_value_t = true)]
-    pub numbers: bool, // 数字
-    #[arg(short, long, default_value_t = true)]
-    pub symbol: bool, // 象征
-}
-
-pub fn verify_input_file(filename:&str) -> Result<String, &'static str> {
-    if Path::new(filename).exists() {
-        Ok(filename.into())
+// 验证输入文件是否存在 如果存在则返回文件路径 否则返回错误信息
+pub fn verify_input_file(csv_file: &str) -> Result<String,&'static str> {
+    if std::path::Path::new(csv_file).exists() {
+        Ok(csv_file.into())
     } else {
         Err("文件不存在".into())
     }
 }
-
-fn parser_format(format: &str) -> Result<OutputFormat, anyhow::Error> {
-    format.parse()
-}
-impl FromStr for OutputFormat {
-    type Err = anyhow::Error;
-
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        match s {
-            "json" => Ok(OutputFormat::Json),
-            "yaml" => Ok(OutputFormat::Yaml),
-            // "toml" => Ok(OutputFormat::Toml),
-            _ => anyhow::bail!("不支持的输出格式: '{}'. 支持的格式有: json, yaml, toml",s)
-        }
-    }
-}
-// 报错临时取消
-// impl fmt::Display for OutputFormat {
-//     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-//         write!(f, "{}", Into::<&'static str>::into(*self))
-//     }
-// }

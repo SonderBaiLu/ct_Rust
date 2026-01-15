@@ -1,33 +1,20 @@
-use clap::Parser;
-use rcli::{Opts, Subcommand, process_csv};
+use clap::{Parser};
+use csv::Reader;
+use serde_json;
+use rcli::{Opts, Player, SubCommand};
 
-// #[derive(Debug, Deserialize, Serialize)]
-// struct Player{
-//     #[serde(rename = "Name")]
-//     name: String,
-//     #[serde(rename = "Position")]
-//     position: String,
-//     #[serde(rename = "DOB")]
-//     dob: String,
-//     #[serde(rename = "Nationality")]
-//     nationality: String,
-//     #[serde(rename = "Kit Number")]
-//     kit: u8,
-// }
-fn main() -> anyhow::Result<()> {
-    let opts: Opts = Opts::parse();
+fn main() -> anyhow::Result<()>{
+    let opts = Opts::parse();
     match opts.cmd {
-        Subcommand::Csv(opts) => {
-            let output = if let Some(output) = opts.output {
-                output.clone()
-            } else {
-                format!("output.{:?}", opts.format)
-            };
-            process_csv(&opts.input, output, opts.format)?;
-        }
-        Subcommand::GenPass(opts) => {
-            // TODO: 待处理 密码相关
-            println!("Generating Pass {:?}", opts);
+        SubCommand::Csv(opts) => {  // 命名尽量要简单
+            let mut reader = Reader::from_path(opts.input)?;
+            let mut ret: Vec<Player> = Vec::with_capacity(128);
+            for result in reader.deserialize() {
+                let record: Player = result?;
+                ret.push(record);
+            }
+            let json = serde_json::to_string_pretty(&ret)?;
+            std::fs::write(&opts.output, json)?;
         }
     }
     Ok(())
