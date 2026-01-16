@@ -1,19 +1,7 @@
 use clap::Parser;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize,Deserialize)]
-pub struct Player{
-    #[serde(rename= "Name")]
-    pubname: String,
-    #[serde(rename= "Role")]
-    pub role: String,
-    #[serde(rename= "Birthday")]
-    pub birthday: String,
-    #[serde(rename= "Region")]
-    pub region: String,
-    #[serde(rename= "Constellation Level")]
-    pub constellation_level: u8,
-}
+
 #[derive(Debug, Parser)]
 #[command(name = "rcli", version, author, about, long_about = None)]
 pub struct Opts {
