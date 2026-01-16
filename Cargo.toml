@@ -11,3 +11,6 @@ serde = { version = "1.0.228", features = ["derive"] }
 chrono = "0.4.43"
 anyhow = "1.0.100"
 serde_json = "1.0.149"
+rustfmt = "0.10.0"
+toml = "0.9.11"
+serde_yaml = "0.9.34"

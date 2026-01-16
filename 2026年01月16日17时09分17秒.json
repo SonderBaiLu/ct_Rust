@@ -1,0 +1,520 @@
+[
+  {
+    "Birthday": "6/18",
+    "Constellation Level": "5",
+    "Name": "旅行者·空",
+    "Region": "坎瑞亚",
+    "Role": "近战输出/元素反应（风/岩/草）"
+  },
+  {
+    "Birthday": "6/18",
+    "Constellation Level": "5",
+    "Name": "旅行者·荧",
+    "Region": "坎瑞亚",
+    "Role": "近战输出/元素反应（风/岩/草）"
+  },
+  {
+    "Birthday": "8/10",
+    "Constellation Level": "4",
+    "Name": "安柏",
+    "Region": "蒙德",
+    "Role": "火元素侦察/远程输出"
+  },
+  {
+    "Birthday": "11/30",
+    "Constellation Level": "4",
+    "Name": "凯亚",
+    "Region": "蒙德",
+    "Role": "冰元素辅助/速切输出"
+  },
+  {
+    "Birthday": "6/9",
+    "Constellation Level": "3",
+    "Name": "丽莎",
+    "Region": "蒙德",
+    "Role": "雷元素持续输出/后台辅助"
+  },
+  {
+    "Birthday": "3/14",
+    "Constellation Level": "6",
+    "Name": "琴",
+    "Region": "蒙德",
+    "Role": "治疗/风元素爆发/减抗辅助"
+  },
+  {
+    "Birthday": "4/30",
+    "Constellation Level": "4",
+    "Name": "迪卢克",
+    "Region": "蒙德",
+    "Role": "火元素站场主C"
+  },
+  {
+    "Birthday": "6/16",
+    "Constellation Level": "6",
+    "Name": "温迪",
+    "Region": "蒙德",
+    "Role": "风元素聚怪/增伤辅助"
+  },
+  {
+    "Birthday": "7/27",
+    "Constellation Level": "5",
+    "Name": "可莉",
+    "Region": "蒙德",
+    "Role": "火元素范围爆破/站场主C"
+  },
+  {
+    "Birthday": "2/29",
+    "Constellation Level": "6",
+    "Name": "班尼特",
+    "Region": "蒙德",
+    "Role": "火元素增伤/治疗辅助"
+  },
+  {
+    "Birthday": "5/27",
+    "Constellation Level": "5",
+    "Name": "菲谢尔",
+    "Region": "蒙德",
+    "Role": "雷元素后台持续输出"
+  },
+  {
+    "Birthday": "2/28",
+    "Constellation Level": "4",
+    "Name": "砂糖",
+    "Region": "蒙德",
+    "Role": "风元素扩散增伤/精通辅助"
+  },
+  {
+    "Birthday": "8/31",
+    "Constellation Level": "5",
+    "Name": "莫娜",
+    "Region": "蒙德",
+    "Role": "水元素增伤/后台挂水"
+  },
+  {
+    "Birthday": "1/18",
+    "Constellation Level": "6",
+    "Name": "迪奥娜",
+    "Region": "蒙德",
+    "Role": "冰元素护盾/治疗辅助"
+  },
+  {
+    "Birthday": "10/17",
+    "Constellation Level": "6",
+    "Name": "优菈",
+    "Region": "蒙德",
+    "Role": "物理站场主C/爆发输出"
+  },
+  {
+    "Birthday": "9/13",
+    "Constellation Level": "4",
+    "Name": "阿贝多",
+    "Region": "蒙德",
+    "Role": "岩元素后台持续输出/辅助"
+  },
+  {
+    "Birthday": "1/24",
+    "Constellation Level": "5",
+    "Name": "罗莎莉亚",
+    "Region": "蒙德",
+    "Role": "冰元素暴击辅助/速切输出"
+  },
+  {
+    "Birthday": "4/20",
+    "Constellation Level": "3",
+    "Name": "埃洛伊",
+    "Region": "联动",
+    "Role": "冰元素远程输出（联动角色）"
+  },
+  {
+    "Birthday": "1/29",
+    "Constellation Level": "5",
+    "Name": "米卡",
+    "Region": "蒙德",
+    "Role": "物理增伤/攻速辅助"
+  },
+  {
+    "Birthday": "12/2",
+    "Constellation Level": "4",
+    "Name": "夏洛蒂",
+    "Region": "蒙德",
+    "Role": "冰元素治疗/护盾辅助"
+  },
+  {
+    "Birthday": "10/1",
+    "Constellation Level": "6",
+    "Name": "香菱",
+    "Region": "璃月",
+    "Role": "火元素后台持续输出/副C"
+  },
+  {
+    "Birthday": "12/23",
+    "Constellation Level": "5",
+    "Name": "重云",
+    "Region": "璃月",
+    "Role": "冰元素附魔辅助/范围输出"
+  },
+  {
+    "Birthday": "3/10",
+    "Constellation Level": "6",
+    "Name": "行秋",
+    "Region": "璃月",
+    "Role": "水元素后台挂水/增伤辅助"
+  },
+  {
+    "Birthday": "8/26",
+    "Constellation Level": "4",
+    "Name": "凝光",
+    "Region": "璃月",
+    "Role": "岩元素站场主C/远程输出"
+  },
+  {
+    "Birthday": "2/14",
+    "Constellation Level": "5",
+    "Name": "北斗",
+    "Region": "璃月",
+    "Role": "雷元素护盾/反击输出"
+  },
+  {
+    "Birthday": "4/17",
+    "Constellation Level": "6",
+    "Name": "魈",
+    "Region": "璃月",
+    "Role": "风元素下落攻击主C"
+  },
+  {
+    "Birthday": "12/31",
+    "Constellation Level": "6",
+    "Name": "钟离",
+    "Region": "璃月",
+    "Role": "岩元素护盾/减抗辅助"
+  },
+  {
+    "Birthday": "12/2",
+    "Constellation Level": "3",
+    "Name": "甘雨",
+    "Region": "璃月",
+    "Role": "冰元素远程重击主C/副C"
+  },
+  {
+    "Birthday": "7/15",
+    "Constellation Level": "6",
+    "Name": "胡桃",
+    "Region": "璃月",
+    "Role": "火元素爆发站场主C"
+  },
+  {
+    "Birthday": "7/28",
+    "Constellation Level": "4",
+    "Name": "烟绯",
+    "Region": "璃月",
+    "Role": "火元素远程持续输出"
+  },
+  {
+    "Birthday": "3/10",
+    "Constellation Level": "5",
+    "Name": "申鹤",
+    "Region": "璃月",
+    "Role": "冰元素增伤辅助/专拐"
+  },
+  {
+    "Birthday": "5/21",
+    "Constellation Level": "6",
+    "Name": "云堇",
+    "Region": "璃月",
+    "Role": "普攻增伤辅助/防御拐"
+  },
+  {
+    "Birthday": "4/20",
+    "Constellation Level": "3",
+    "Name": "夜兰",
+    "Region": "璃月",
+    "Role": "水元素后台副C/机动输出"
+  },
+  {
+    "Birthday": "1/19",
+    "Constellation Level": "5",
+    "Name": "白术",
+    "Region": "璃月",
+    "Role": "草元素治疗/护盾辅助"
+  },
+  {
+    "Birthday": "12/11",
+    "Constellation Level": "6",
+    "Name": "闲云",
+    "Region": "璃月",
+    "Role": "风元素下落攻击辅助/专拐"
+  },
+  {
+    "Birthday": "8/5",
+    "Constellation Level": "4",
+    "Name": "瑶瑶",
+    "Region": "璃月",
+    "Role": "草元素治疗/后台挂草"
+  },
+  {
+    "Birthday": "9/28",
+    "Constellation Level": "5",
+    "Name": "神里绫华",
+    "Region": "稻妻",
+    "Role": "冰元素速切爆发主C"
+  },
+  {
+    "Birthday": "6/26",
+    "Constellation Level": "3",
+    "Name": "雷电将军",
+    "Region": "稻妻",
+    "Role": "雷元素充能辅助/爆发主C"
+  },
+  {
+    "Birthday": "6/25",
+    "Constellation Level": "4",
+    "Name": "早柚",
+    "Region": "稻妻",
+    "Role": "风元素治疗/隐身辅助"
+  },
+  {
+    "Birthday": "6/21",
+    "Constellation Level": "5",
+    "Name": "宵宫",
+    "Region": "稻妻",
+    "Role": "火元素远程普攻主C"
+  },
+  {
+    "Birthday": "4/26",
+    "Constellation Level": "4",
+    "Name": "神里绫人",
+    "Region": "稻妻",
+    "Role": "水元素速切爆发副C/主C"
+  },
+  {
+    "Birthday": "1/9",
+    "Constellation Level": "6",
+    "Name": "托马",
+    "Region": "稻妻",
+    "Role": "火元素护盾/后台挂火"
+  },
+  {
+    "Birthday": "2/22",
+    "Constellation Level": "1",
+    "Name": "珊瑚宫心海",
+    "Region": "稻妻",
+    "Role": "水元素治疗/后台挂水"
+  },
+  {
+    "Birthday": "8/13",
+    "Constellation Level": "5",
+    "Name": "五郎",
+    "Region": "稻妻",
+    "Role": "岩元素防御增伤辅助/专拐"
+  },
+  {
+    "Birthday": "10/24",
+    "Constellation Level": "4",
+    "Name": "久岐忍",
+    "Region": "稻妻",
+    "Role": "雷元素治疗/后台持续输出"
+  },
+  {
+    "Birthday": "7/24",
+    "Constellation Level": "5",
+    "Name": "鹿野院平藏",
+    "Region": "稻妻",
+    "Role": "风元素近战速切输出"
+  },
+  {
+    "Birthday": "10/29",
+    "Constellation Level": "6",
+    "Name": "枫原万叶",
+    "Region": "稻妻",
+    "Role": "风元素扩散增伤/精通辅助"
+  },
+  {
+    "Birthday": "6/1",
+    "Constellation Level": "5",
+    "Name": "荒泷一斗",
+    "Region": "稻妻",
+    "Role": "岩元素站场主C/普攻爆发"
+  },
+  {
+    "Birthday": "6/27",
+    "Constellation Level": "4",
+    "Name": "八重神子",
+    "Region": "稻妻",
+    "Role": "雷元素后台爆发输出"
+  },
+  {
+    "Birthday": "1/9",
+    "Constellation Level": "6",
+    "Name": "流浪者",
+    "Region": "稻妻",
+    "Role": "风元素浮空持续输出"
+  },
+  {
+    "Birthday": "1/16",
+    "Constellation Level": "6",
+    "Name": "珐露珊",
+    "Region": "须弥",
+    "Role": "风元素减抗辅助/精通拐"
+  },
+  {
+    "Birthday": "12/29",
+    "Constellation Level": "5",
+    "Name": "提纳里",
+    "Region": "须弥",
+    "Role": "草元素远程重击主C"
+  },
+  {
+    "Birthday": "5/8",
+    "Constellation Level": "4",
+    "Name": "柯莱",
+    "Region": "须弥",
+    "Role": "草元素后台挂草/辅助"
+  },
+  {
+    "Birthday": "12/10",
+    "Constellation Level": "3",
+    "Name": "多莉",
+    "Region": "须弥",
+    "Role": "雷元素充能/治疗辅助"
+  },
+  {
+    "Birthday": "6/16",
+    "Constellation Level": "5",
+    "Name": "赛诺",
+    "Region": "须弥",
+    "Role": "雷元素站场主C/激化输出"
+  },
+  {
+    "Birthday": "12/2",
+    "Constellation Level": "6",
+    "Name": "妮露",
+    "Region": "须弥",
+    "Role": "水元素绽放队核心辅助"
+  },
+  {
+    "Birthday": "10/27",
+    "Constellation Level": "2",
+    "Name": "纳西妲",
+    "Region": "须弥",
+    "Role": "草元素反应核心/增伤辅助"
+  },
+  {
+    "Birthday": "12/19",
+    "Constellation Level": "4",
+    "Name": "莱依拉",
+    "Region": "须弥",
+    "Role": "冰元素护盾/后台挂冰"
+  },
+  {
+    "Birthday": "2/11",
+    "Constellation Level": "5",
+    "Name": "艾尔海森",
+    "Region": "须弥",
+    "Role": "草元素速切爆发主C/副C"
+  },
+  {
+    "Birthday": "8/9",
+    "Constellation Level": "5",
+    "Name": "卡维",
+    "Region": "须弥",
+    "Role": "草元素后台持续输出/辅助"
+  },
+  {
+    "Birthday": "3/10",
+    "Constellation Level": "4",
+    "Name": "迪希雅",
+    "Region": "纳塔",
+    "Role": "火元素前台抗打断/输出"
+  },
+  {
+    "Birthday": "7/21",
+    "Constellation Level": "4",
+    "Name": "玛拉妮",
+    "Region": "纳塔",
+    "Role": "火元素后台持续输出/辅助"
+  },
+  {
+    "Birthday": "8/18",
+    "Constellation Level": "5",
+    "Name": "卡齐娜",
+    "Region": "纳塔",
+    "Role": "火元素近战输出/协同攻击"
+  },
+  {
+    "Birthday": "10/12",
+    "Constellation Level": "5",
+    "Name": "基尼奇",
+    "Region": "纳塔",
+    "Role": "雷元素近战输出/切换形态"
+  },
+  {
+    "Birthday": "9/5",
+    "Constellation Level": "4",
+    "Name": "茜特拉莉",
+    "Region": "纳塔",
+    "Role": "草元素后台挂草/治疗辅助"
+  },
+  {
+    "Birthday": "6/21",
+    "Constellation Level": "5",
+    "Name": "林尼",
+    "Region": "枫丹",
+    "Role": "火元素速切爆发主C"
+  },
+  {
+    "Birthday": "12/2",
+    "Constellation Level": "4",
+    "Name": "琳妮特",
+    "Region": "枫丹",
+    "Role": "风元素聚怪/后台辅助"
+  },
+  {
+    "Birthday": "1/15",
+    "Constellation Level": "3",
+    "Name": "菲米尼",
+    "Region": "枫丹",
+    "Role": "冰元素潜水辅助/输出"
+  },
+  {
+    "Birthday": "12/18",
+    "Constellation Level": "6",
+    "Name": "那维莱特",
+    "Region": "枫丹",
+    "Role": "水元素站场主C/爆发输出"
+  },
+  {
+    "Birthday": "10/13",
+    "Constellation Level": "2",
+    "Name": "芙宁娜",
+    "Region": "枫丹",
+    "Role": "水元素增伤/生命值拐核心辅助"
+  },
+  {
+    "Birthday": "11/1",
+    "Constellation Level": "5",
+    "Name": "莱欧斯利",
+    "Region": "枫丹",
+    "Role": "冰元素站场主C/近战输出"
+  },
+  {
+    "Birthday": "3/14",
+    "Constellation Level": "4",
+    "Name": "希格雯",
+    "Region": "枫丹",
+    "Role": "水元素治疗/护盾辅助"
+  },
+  {
+    "Birthday": "12/14",
+    "Constellation Level": "5",
+    "Name": "娜维娅",
+    "Region": "枫丹",
+    "Role": "岩元素速切爆发主C/副C"
+  },
+  {
+    "Birthday": "9/22",
+    "Constellation Level": "6",
+    "Name": "克洛琳德",
+    "Region": "枫丹",
+    "Role": "雷元素速切爆发主C/近战输出"
+  }
+]
