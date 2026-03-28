@@ -19,3 +19,11 @@ async fn get_post() -> Json<BlogPost>{
         is_published: true,
     })
 }
+
+#[tokio::main]
+async fn main() {
+    let app = Router::new().route("/api/post/", get(get_post));
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
+    println!("🚀 服务器已启动，请访问 http://localhost:8080");
+    axum::serve(listener, app).await.unwrap();
+}
