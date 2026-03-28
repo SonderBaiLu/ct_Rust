@@ -1,11 +1,8 @@
-use std::collections::HashMap;
-use chrono::format::Item::Error;
+use crate::cli::csv::OutputFormat;
 use chrono::Utc;
-use csv::{Reader, StringRecord};
+use csv::Reader;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use toml::Value::Datetime;
-use crate::opts::OutputFormat;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Player {
@@ -45,7 +42,6 @@ pub fn process_csv(input: &str, output: &str, format: OutputFormat) -> anyhow::R
         OutputFormat::Yaml => serde_yaml::to_string(&ret)?,
         OutputFormat::Toml => toml::to_string(&ret)?,
     };
-    let json = serde_json::to_string_pretty(&ret)?;
     // 获取当前时间
     let now = Utc::now();
     // 格式化时间为字符串

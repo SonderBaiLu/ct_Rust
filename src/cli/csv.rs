@@ -1,22 +1,12 @@
+use clap::Parser;
 use std::fmt;
 use std::fmt::Formatter;
-use std::process::Output;
 use std::str::FromStr;
-use clap::Parser;
 
-#[derive(Debug, Parser)]
-#[command(name = "rcli", version, author, about, long_about = None)]
-pub struct Opts {
-    #[command(subcommand)]
-    pub cmd: SubCommand,
-}
-#[derive(Debug, Parser)]
-pub enum SubCommand {
-    #[command(name = "csv", about = "显示Csv或将Csv转换为其他格式")]
-    Csv(CsvOpts),
-}
+use crate::cli::verify_input_file;
+
 #[derive(Debug, Clone, Copy)]
-pub enum OutputFormat{
+pub enum OutputFormat {
     Json,
     Yaml,
     Toml,
@@ -39,14 +29,7 @@ pub struct CsvOpts {
     #[arg(long, default_value_t = true)] // 携带short参数与-help冲突
     pub header: bool,
 }
-// 验证输入文件是否存在 如果存在则返回文件路径 否则返回错误信息
-pub fn verify_input_file(csv_file: &str) -> Result<String, &'static str> {
-    if std::path::Path::new(csv_file).exists() {
-        Ok(csv_file.into())
-    } else {
-        Err("文件不存在")
-    }
-}
+
 pub fn parse_output_format(format: &str) -> Result<OutputFormat, anyhow::Error> {
     format.parse::<OutputFormat>()
 }
