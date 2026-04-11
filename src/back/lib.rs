@@ -1,6 +1,5 @@
-mod opts;
-// mod process;
-mod csv_convert;
+mod cli;
+mod process;
 
-pub use opts::{Opts, Subcommand};
-pub use csv_convert::process_csv;
+pub use cli::{Base64SubCommand, Opts, SubCommand};
+pub use process::{process_csv, process_genpass, process_encode, process_decode};

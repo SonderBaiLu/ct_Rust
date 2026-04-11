@@ -1,34 +1,28 @@
 use clap::Parser;
-use rcli::{Opts, Subcommand, process_csv};
-
-// #[derive(Debug, Deserialize, Serialize)]
-// struct Player{
-//     #[serde(rename = "Name")]
-//     name: String,
-//     #[serde(rename = "Position")]
-//     position: String,
-//     #[serde(rename = "DOB")]
-//     dob: String,
-//     #[serde(rename = "Nationality")]
-//     nationality: String,
-//     #[serde(rename = "Kit Number")]
-//     kit: u8,
-// }
+use rcli::{Opts, SubCommand, process_csv, process_genpass, Base64SubCommand, process_encode, process_decode};
 fn main() -> anyhow::Result<()> {
-    let opts: Opts = Opts::parse();
+    let opts = Opts::parse();
     match opts.cmd {
-        Subcommand::Csv(opts) => {
+        SubCommand::Csv(opts) => {
             let output = if let Some(output) = opts.output {
                 output.clone()
             } else {
-                format!("output.{:?}", opts.format)
+                format!("output.{}", opts.format)
             };
-            process_csv(&opts.input, output, opts.format)?;
+            // 命名尽量要简单
+            process_csv(&opts.input, &output, opts.format)?;
         }
-        Subcommand::GenPass(opts) => {
-            // TODO: 待处理 密码相关
-            println!("Generating Pass {:?}", opts);
+        SubCommand::GenPass(opts) => {
+            process_genpass(&opts)?;
         }
+        SubCommand::Base64(subcommand) => match subcommand {
+            Base64SubCommand::Encode(opts) => {
+                process_encode(&opts.input, opts.format)?;
+            }
+            Base64SubCommand::Decode(opts) => {
+                process_decode(&opts.input, opts.format)?;
+            }
+        },
     }
     Ok(())
 }
