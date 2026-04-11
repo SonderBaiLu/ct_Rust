@@ -30,6 +30,6 @@ Rcli csv命令  -i [文件名称].csv  -o [文件名称].json -c -header -d '[�
     .map(|record| record.unwrap())
     .collect::<Vec<Player>>();
 ~~~
-
+![img.png](img.png)
 # 分支
 - feature/Generate_random_passwords
