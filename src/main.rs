@@ -1,10 +1,11 @@
 mod error;
-use axum::routing::{get, post, put};
 use axum::Router;
-use rcli::handlers;
-use rcli::handlers::{create_post, get_post};
 use tower_http::cors::{Any, CorsLayer};
-
+mod auth;   // 新增：导入auth模块
+mod handlers;// 新增：导入handlers模块
+use axum::routing::{get, post, put, delete}; // 新增delete方法
+use crate::auth::login; // 修正：从当前crate导入
+use crate::handlers::{create_post, get_post, update_post, delete_post}; // 修正
 #[tokio::main]
 async fn main() {
     // 🌟 去掉返回值
@@ -24,12 +25,11 @@ async fn main() {
         .allow_headers(Any);
 
     let app = Router::new()
+        .route("/api/login", post(login))
         .route("/api/get_post/", get(get_post))
         .route("/api/create_post/", post(create_post))
-        .route(
-            "/api/update_post/{id}",
-            put(handlers::update_post).delete(handlers::delete_post),
-        )
+        .route("/api/update_post/{id}", put(update_post))
+        .route("/api/delete_post/{id}", delete(delete_post))
         .with_state(pool)
         .layer(cors);
 

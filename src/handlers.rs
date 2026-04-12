@@ -1,3 +1,4 @@
+use crate::auth::Claims;
 use crate::error::AppError;
 use axum::{
     Json,
@@ -32,6 +33,7 @@ pub struct CreatePostRequest {
 // 创建博客文章处理函数
 pub async fn create_post(
     State(pool): State<PgPool>,
+    claims: Claims,
     Json(request): Json<CreatePostRequest>,
 ) -> Result<Json<BlogPost>, AppError> {
     let post = sqlx::query_as!(
@@ -48,7 +50,9 @@ pub async fn create_post(
     Ok(Json(post))
 }
 // 获取博客文章处理函数
-pub async fn get_post(State(pool): State<PgPool>) -> Result<Json<Vec<BlogPost>>, AppError> {
+pub async fn get_post(
+    State(pool): State<PgPool>,
+) -> Result<Json<Vec<BlogPost>>, AppError> {
     let posts = sqlx::query_as!(BlogPost, r#"select * from blog_posts"#,)
         .fetch_all(&pool)
         .await?;
@@ -81,7 +85,6 @@ pub async fn delete_post(
     Path(id): Path<i32>,
 ) -> Result<Json<serde_json::Value>, AppError> {
     sqlx::query!(r#"delete from blog_posts where id = $1"#, id)
-        .bind(id)
         .execute(&pool)
         .await?;
     // 删除成功后，没有具体的文章可以返回了，我们就手动拼一个友好的 JSON 返回去
