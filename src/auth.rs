@@ -39,22 +39,27 @@ struct User {
     // username: String,
     password_hash: String,
 }
-
+// 检查是否包含 admin 字符串
+fn validate_username(username: &str) -> bool{
+    username.contains("admin")
+}
 // 🚧 员工 C：负责处理登录
 pub async fn login(
     State(pool): State<PgPool>,
     Json(payload): Json<LoginRequest>,
 ) -> Result<Json<AuthResponse>, AppError> {
-    println!(
+    tracing::info!(
         "🔍 收到请求: 账号='{}', 密码='{}'",
-        payload.username, payload.password
+        payload.username,
+        payload.password
     );
     let real_hash = bcrypt::hash("123456", 4).unwrap();
-    println!("🔐 真正的 123456 哈希乱码是: {}", real_hash);
+    tracing::info!("🔐 真正的 123456 哈希乱码是: {}", real_hash);
     // 【防线 1：参数判空】
     if payload.username.is_empty() || payload.password.is_empty() {
         return Err(AppError::BadRequest("用户名或密码不能为空".to_string()));
     }
+    tracing::info!("🔍 开始查询数据库，检查账号是否存在...");
     let user = sqlx::query_as!(
         User,
         r#"SELECT password_hash FROM users WHERE username = $1"#,
@@ -63,15 +68,16 @@ pub async fn login(
     .fetch_optional(&pool)
     .await?;
     if user.is_none() {
-        println!(
+        tracing::error!(
             "❌ 破案了：数据库里根本没找到 [{}] 这个账号！",
             payload.username
         );
     } else {
-        println!("✅ 数据库查到账号了，准备进入 bcrypt 验钞机...");
+        tracing::info!("✅ 数据库查到账号了，准备进入 bcrypt 验钞机...");
     }
 
     // 【防线 3：拆开纸盒，核对密码并印发通行证】
+    tracing::info!("🔍 开始验证密码...");
     match user {
         // 情况 A：数据库里查到了这个人
         Some(db_user) => {
@@ -87,7 +93,7 @@ pub async fn login(
                     .expect("时间计算错误")
                     .timestamp() as usize;
 
-                let claims = Claims {
+                let claims = &Claims {
                     sub: payload.username, // 消耗掉 payload 里的 username
                     exp: expiration,
                 };

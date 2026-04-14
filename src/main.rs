@@ -6,11 +6,15 @@ mod handlers;// 新增：导入handlers模块
 use axum::routing::{get, post, put, delete}; // 新增delete方法
 use crate::auth::login; // 修正：从当前crate导入
 use crate::handlers::{create_post, get_post, update_post, delete_post}; // 修正
+use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 #[tokio::main]
 async fn main() {
-    // 🌟 去掉返回值
-    dotenvy::dotenv().ok();
-
+    // 初始化日志（默认从环境变量 RUST_LOG 读取等级
+    tracing_subscriber::registry()
+        .with(tracing_subscriber::EnvFilter::try_from_default_env().unwrap())
+        .with(tracing_subscriber::fmt::layer())
+        .init();
+    tracing::info!("🚀 凌言 AI 博客系统（PG 版）正在启动...");
     // 启动阶段的错误，直接原地爆炸并给出清晰的报错
     let db_url = std::env::var("DATABASE_URL").expect("致命错误：找不到 DATABASE_URL 环境变量！");
 
